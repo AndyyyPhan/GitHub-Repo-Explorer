@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "API that lets users search GitHub repositories by username and save their favorite repos to their account",
+  "homepage": "https://github.com/AndyyyPhan/GitHub-Repo-Explorer#readme",
+  "bugs": {
+    "url": "https://github.com/AndyyyPhan/GitHub-Repo-Explorer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndyyyPhan/GitHub-Repo-Explorer.git"
+  },
+  "license": "MIT",
+  "author": "Andy Phan",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
