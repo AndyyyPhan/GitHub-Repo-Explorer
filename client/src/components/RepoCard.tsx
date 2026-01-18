@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { GitHubRepo, Favorite } from "../types";
+import type { GitHubRepo } from "../types";
 import { useAuth } from "../context/AuthContext";
 
 interface RepoCardProps {
