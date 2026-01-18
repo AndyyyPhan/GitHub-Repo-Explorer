@@ -116,7 +116,7 @@ export async function searchGitHubRepos(
   username: string,
 ): Promise<GitHubRepo[]> {
   const response = await fetch(
-    `https://api.github.com/users/${username}/repos?sort=stars&per_page=30`,
+    `https://api.github.com/users/${username}/repos?per_page=30`,
   );
 
   if (!response.ok) {
