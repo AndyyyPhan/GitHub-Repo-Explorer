@@ -1,13 +1,9 @@
-import { Routes, Route, Navigate, Link } from "react-router-dom";
-import { useAuth } from "./context/AuthContext";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/RegisterPage.tsx";
-
-function SearchPage() {
-  return <div className="p-8 text-center">Search Page (coming soon)</div>;
-}
+import SearchPage from "./pages/SearchPage.tsx";
 
 function FavoritesPage() {
   return <div className="p-8 text-center">Favorites Page (coming soon)</div>;
