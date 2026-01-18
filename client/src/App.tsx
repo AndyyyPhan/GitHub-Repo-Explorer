@@ -4,10 +4,7 @@ import Navbar from "./components/Navbar.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/RegisterPage.tsx";
 import SearchPage from "./pages/SearchPage.tsx";
-
-function FavoritesPage() {
-  return <div className="p-8 text-center">Favorites Page (coming soon)</div>;
-}
+import FavoritesPage from "./pages/FavoritesPage.tsx";
 
 function App() {
   return (
