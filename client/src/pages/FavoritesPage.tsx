@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getFavorites, removeFavorite } from "../services/api";
-import type { Favorite, GitHubRepo } from "../types";
+import type { Favorite } from "../types";
 
 export default function FavoritesPage() {
   const [favorites, setFavorites] = useState<Favorite[]>([]);
@@ -32,18 +32,6 @@ export default function FavoritesPage() {
     } catch (err) {
       alert(err instanceof Error ? err.message : "Failed to remove");
     }
-  }
-
-  // Convert Favorite to GitHubRepo format for RepoCard
-  function toGitHubRepo(fav: Favorite): GitHubRepo {
-    return {
-      id: Number(fav.repo_id),
-      name: fav.repo_name,
-      html_url: fav.repo_url,
-      description: fav.description,
-      language: fav.language,
-      stargazers_count: fav.stars_count,
-    };
   }
 
   // Loading state
