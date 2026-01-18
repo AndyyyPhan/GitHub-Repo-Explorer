@@ -6,6 +6,7 @@ import type { GitHubRepo, Favorite } from "../types";
 
 export default function SearchPage() {
   const [username, setUsername] = useState("");
+  const [searchedUsername, setSearchedUsername] = useState("");
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [favorites, setFavorites] = useState<Favorite[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,10 +22,16 @@ export default function SearchPage() {
     setIsLoading(true);
     setError("");
     setHasSearched(true);
+    setSearchedUsername(username.trim());
 
     try {
-      const results = await searchGitHubRepos(username);
-      setRepos(results);
+      const results = await searchGitHubRepos(username.trim());
+
+      const sortedResults = results.sort(
+        (a, b) => b.stargazers_count - a.stargazers_count,
+      );
+
+      setRepos(sortedResults);
 
       // If logged in, fetch favorites to check which repos are saved
       if (isAuthenticated) {
@@ -143,7 +150,7 @@ export default function SearchPage() {
         <div>
           <h2 className="text-xl font-semibold text-gray-900 mb-6">
             Found {repos.length} repositories for{" "}
-            <span className="text-gray-600">@{username}</span>
+            <span className="text-gray-600">@{searchedUsername}</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {repos.map((repo) => (
@@ -158,7 +165,7 @@ export default function SearchPage() {
         </div>
       )}
 
-      {/* Empty Space */}
+      {/* Empty State */}
       {hasSearched && !isLoading && repos.length === 0 && !error && (
         <div className="text-center py-12">
           <svg
